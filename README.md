@@ -7,3 +7,5 @@ Moreover, I am a teaching assistant at the department for the following courses:
 STAT1011 Introduction to Statistics (17-18 Term 1, 279 students)        
 STAT2006 Basic Concepts in Statistics and Probability II (17-18 Term 2, 218 students) <br />
 RMSC4002 Data Analysis in Finance and Risk Management Science (18-19 Term 1, 45 students) <br />
+
+You can find the above tutorial notes here.
