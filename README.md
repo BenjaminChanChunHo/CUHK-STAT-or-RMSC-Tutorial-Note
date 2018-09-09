@@ -21,4 +21,5 @@ Tutorial 8: Confidence Interval for Variance and Proportion
 
 ### RMSC4002 Data Analysis in Finance and Risk Management Science 
 This course covers modern data analysis techniques that are commonly used in financial and risk management. Topics include applications of multivariate techniques such as principal component and canonical correlation to asset management, Value-at-Risks, GARCH model in estimating volatility, time series methods in term-structure analysis, and data mining methods such as logistic regression, k-mean clustering and classification tree, and neural network.
-#### 18-19 Term 1, 45 students (Current)
+#### 18-19 Term 1 (Current), 45 students
+Tutorial 0: Introduction to R
