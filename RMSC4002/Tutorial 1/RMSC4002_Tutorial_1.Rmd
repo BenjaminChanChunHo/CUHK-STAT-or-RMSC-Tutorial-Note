@@ -1,0 +1,122 @@
+---
+title: "CUHK RMSC4002 Tutorial 1"
+author: "Benjamin Chan"
+date: "September 9, 2018"
+output: 
+  html_document: 
+    keep_md: yes
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "")
+```
+
+## Basic Principle in R Function
+To use a function, you should put arguments in the same order as stated in the function definition if you do not specify the argument names. Or else you need to specify the argument names when you do not provide them in correct order. In fact, you can have a mixed type (only for familiar users).
+```{r}
+num <- 3.678
+
+# Function definition: round(x, digits = 0) 
+# Round the values in x to the specified number of decimal places (default 0). 
+round(num)                    # Round to default 0 decimal place
+round(x = num)                # Same as above
+round(num, 2)                 # Round to 2 decimal places
+round(x = num, digits = 2)    # Same as above
+round(digits = 2, x = num)    # Note: swapped order of arguments
+```
+
+## Basic Matrix Operation in R
+### Read in data
+Assume that `RMSC4002_Tutorial_1.Rmd` is located under directory `RMSC4002` $\rightarrow$ `Tutorial 1` while `fin-ratio.csv` is located under `RMSC4002` $\rightarrow$ `Dataset`. In fact, you do not need to move any file or change directory in order to read in the data.
+```{r}
+# Get your current working directory
+getwd()
+
+# List the names of files in the named directory
+# First single dot (.) means relative to the current directory
+dir("./")      # Dataset is not found here
+
+# Second double dots (..) means one directory upward from the current directory
+dir("./../")   # Dataset is found here
+
+# Read in data (a CSV file) under Dataset
+# Save it to an object named d
+d <- read.csv("./../Dataset/fin-ratio.csv")
+names(d)    # Output the variable names
+head(d)     # Return the first part of data (default: 6 rows)
+str(d)      # Display the structure of an object
+```
+
+### Manipulate data
+The last variable `HSI` is binary. In this stage, please ignore it.
+```{r}
+# Extract the first 6 columns in d and save it to an object named x
+x <- d[, 1:6]
+```
+Use `apply(X, MARGIN, FUN, ...)` to apply a function `FUN` to `MARGIN` of an array or matrix `X`. Here `MARGIN = 1` means row-wise operation while `MARGIN = 2` means column-wise operation.
+```{r}
+# Calculate the column means of x and save it to an object named m
+# Display object m right after assignment by putting code inside parentheses ()
+(m <- apply(x, 2, mean))
+
+# Alternatively
+m <- apply(X = x, MARGIN = 2, FUN = mean)    # See Basic Principle in R Function
+m
+
+# Calculate the sample covariance matrix of x and save it to an object named S
+S <- var(x)
+(round(var(x), 3))      # Display only 3 decimal places
+
+# Calculate the sample correlation matrix of x
+round(cor(x), 3)        # Display only 3 decimal places
+```
+Note that $$\text{Corr}(X,X)=1.$$
+
+### Manipulate matrices
+```{r}
+options(digits = 4)     # Control display to 4 decimals
+det(solve(S))           # Determinant of inverse of S
+1/det(S)
+```
+Note that $$\big|S^{-1}\big|=\frac{1}{|S|}.$$
+
+```{r}
+eig <- eigen(S)         # Save eigenvalues and eigenvectors of S
+names(eig)              # Display items in eig
+(eval <- eig$values)    # Save eigenvalues
+(H <- eig$vectors)      # Save matrix of eigenvectors
+
+# t(x) returns the transpose of x
+# %*%: matrix multiplication
+round(t(H)%*%H, 3)      
+round(H%*%t(H), 3)
+```
+If H is an orthogonal matrix, then $$H'H=HH'=I.$$
+
+```{r}
+h1 <- H[, 1]            # Extract first column of H (first eigenvector) to h1
+eval[1]*h1              # Compute lambda1*h1  (displayed as row vector)
+as.vector(S%*%h1)       # Compute S*h1        (displayed as row vector)
+```
+Note that $$Sh_1=\lambda_1h_1.$$
+
+```{r}
+round(t(H)%*%S%*%H, 3)
+```
+Note that $$H'SH=D=\text{diag}(\lambda_1,...,\lambda_6).$$
+
+```{r}
+D <- diag(eval)          # Form diagonal matrix D
+H%*%D%*%t(H)
+```
+Note that $$HDH'=S.$$
+
+```{r}
+sqrt(D)
+(rS <- H%*%sqrt(D)%*%t(H))
+rS%*%rS
+```
+
+Note that $$HD^{1/2}H'=S^{1/2}$$ and $$S^{1/2}S^{1/2}=S.$$
