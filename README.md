@@ -1,6 +1,6 @@
 # <a href = "http://www.cuhk.edu.hk/english/index.html" target = "_blank">The Chinese University of Hong Kong (CUHK)</a>
 ## <a href = "http://www.sta.cuhk.edu.hk/Home.aspx" target = "_blank">Department of Statistics</a>
-### Introduction
+### Self-introduction
 Hello, I am <a href = "https://www.linkedin.com/in/benjamin-chan-chun-ho/" target = "_blank">Benjamin Chan</a>, pursuing M.Phil. in Statistics at CUHK from Aug 2017 to Jul 2019. Moreover, I am a teaching assistant at Department of Statistics. You can find my tutorial notes here.
 
 Prior to that, I received my undergraduate degree in Statistics at CUHK (with First Class Honours and minor in Risk Management Science).
