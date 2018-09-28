@@ -1,8 +1,9 @@
 # <a href = "http://www.cuhk.edu.hk/english/index.html" target = "_blank">The Chinese University of Hong Kong (CUHK)</a>
 ## <a href = "http://www.sta.cuhk.edu.hk/Home.aspx" target = "_blank">Department of Statistics</a>
 ### Introduction
-Hello, I am <a href = "https://www.linkedin.com/in/benjamin-chan-chun-ho/" target = "_blank">Benjamin Chan</a>, an M.Phil. in Statistics student at CUHK from Aug 2017 to Jul 2019. 
-Moreover, I am a teaching assistant at Department of Statistics. You can find my tutorial notes here.
+Hello, I am <a href = "https://www.linkedin.com/in/benjamin-chan-chun-ho/" target = "_blank">Benjamin Chan</a>, pursuing M.Phil. in Statistics at CUHK from Aug 2017 to Jul 2019. Moreover, I am a teaching assistant at Department of Statistics. You can find my tutorial notes here.
+
+Prior to that, I received my undergraduate degree in Statistics at CUHK (with First Class Honours and minor in Risk Management Science).
 
 ### STAT1011 Introduction to Statistics 
 Students will learn the basic concepts of statistics, so that they will be equipped to understand statistical reports and recognize when the quantitative information presented is reliable. They will also learn about organizing and displaying graphical and numerical summaries of data, and drawing conclusions from them. The course uses computer interactive techniques, instead of tedious arithmetic calculations, to introduce simple but powerful statistical concepts. Topics include exploratory data analysis, statistical graphics, sampling variability, point and confidence interval estimation, hypothesis testing, as well as other selected topics.
