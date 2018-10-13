@@ -26,4 +26,5 @@ This course covers modern data analysis techniques that are commonly used in fin
 Tutorial 0: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_0" target = "_blank">Introduction to R</a> (including optional reference) <br />
 Tutorial 1: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_1" target = "_blank">Basic Matrix Operation in R</a> (including selected proof) <br />
 Tutorial 2: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_2" target = "_blank">Check for Univariate Normal Distribution in R</a> (using stock price data) <br />
-Tutorial 3: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_3" target = "_blank">Check for and Generate Multivariate Normal Distribution in R and Excel</a> (using stock price data)
+Tutorial 3: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_3" target = "_blank">Check for and Generate Multivariate Normal Distribution in R and Excel</a> (using stock price data) <br />
+Tutorial 4: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_4" target = "_blank">Estimate Volatility and Correlation in R</a> (using stock price data)
