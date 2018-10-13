@@ -1,0 +1,118 @@
+---
+title: "CUHK RMSC4002 Tutorial 4"
+author: "Benjamin Chan"
+date: "October 16, 2018"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "")
+```
+
+### Read in and Manipulate Data
+```{r}
+# Read in data (a CSV file) under Dataset
+d <- read.csv("./../Dataset/stock_2018.csv")
+
+# as.ts: coerce an object to a time-series
+t1 <- as.ts(d$HSBC)               # For stock HSBC (0005)
+t2 <- as.ts(d$CLP)                # For stock CLP (0002)
+t3 <- as.ts(d$CK)                 # For stock Cheung Kong (0001)
+
+# Compute daily percentage return
+u1 <- (lag(t1)-t1)/t1             # lag: compute a lagged version of a time series
+u2 <- (lag(t2)-t2)/t2
+u3 <- (lag(t3)-t3)/t3
+```
+
+### Moving Standard Deviation
+```{r}
+msd <- function(t, w) {           # Function to compute moving s.d.
+   n <- length(t)-w+1
+   out <- c()                     # Initialize an output vector
+   
+   for (i in 1:n) {
+      j <- i+w-1
+      s <- sd (window(t, i, j))   # Compute the sd of t(i) to t(j)
+      out <- append(out, s)       # Append to out
+   }
+
+   out <- as.ts(out)              # Coerce to a time-series object
+}
+
+s1_90 <- msd(u1, 90)              # Compute 90-day moving sd of u1
+s1_180 <- msd(u1, 180)            # Compute 180-day moving sd of u1
+
+par(mfrow = c(1, 1))
+plot(s1_90, ylim = c(0, max(s1_90, s1_180)), ylab = "90-day Moving SD")
+plot(s1_180, ylim = c(0, max(s1_90, s1_180)), ylab = "180-day Moving SD")
+```
+
+Note that the volatility varies with time.
+
+The minimum and maximum of `s1_90` is `r round(min(s1_90), 4)` and `r round(max(s1_90), 4)`. Hence the minimum and maximum annual volatility is `r round(sqrt(252)*min(s1_90)*100, 2)`% and `r round(sqrt(252)*max(s1_90)*100, 2)`%.
+Similarly, the minimum and maximum of `s1_180` is `r round(min(s1_180), 4)` and `r round(max(s1_180), 4)`. Hence the minimum and maximum annual volatility is `r round(sqrt(252)*min(s1_180)*100, 2)`% and `r round(sqrt(252)*max(s1_180)*100, 2)`%.
+
+### Generalized Autoregressive Conditional Heteroskedasticity (GARCH) Model
+#### Maximum Likelihood Estimation
+```{r, results = 'hide', warning = FALSE}
+library(tseries)
+res <- garch(u1, order = c(1, 1))     # Fit GARCH(1,1) model
+```
+
+```{r}
+names(res)                            # names: get or set the names of an object
+round(res$coef, 6)                    # Display the coefficient using 6 digits
+
+# n.likeli: the negative log-likelihood function evaluated
+# at the coefficient estimates (apart from some constant)
+-2*res$n.likeli                       
+
+summary(res)
+```
+
+All the p-values are small and hence the coefficients are significantly different from zero.
+
+#### Model Diagnostic
+```{r}
+plot(res)
+```
+
+From the plots, `u1` and the residuals are approximately normally distributed
+
+```{r}
+# Box.test: compute the Box-Pierce or Ljung-Box test statistic 
+# for examining null hypothesis of independence in a time series
+Box.test(u1^2, lag = 15, type = "Ljung")
+Box.test(res$resid^2, lag = 15, type = "Ljung")
+```
+
+The p-value of Box-Ljung test statistic for $u_i^2$ is small, meaning that there exists autocorrelation in $u_i^2$. On the other hand, the p-value for $u_i^2/\sigma_i^2$ is large, meaning that there is no autocorrelation in $u_i^2/\sigma_i^2$. It indicates that the autocorrelation of $u_i^2$ is removed by GARCH(1,1) model. Hence $\sigma_i^2$ is a good estimate of the variance rate.
+
+#### Plot the Fitted Values
+```{r, warning = FALSE, message = FALSE}
+library(plotly)                                # Create Interactive Web Graphics via 'plotly.js'
+library(tidyr)                                 # Easily Tidy Data with 'spread()' and 'gather()' Functions
+library(dplyr)                                 # A Grammar of Data Manipulation
+
+t90 <- as.ts(c(rep(NA, 45), s1_90))            # Add 45 NA's in front of s1_90
+t180 <- as.ts(c(rep(NA, 90), s1_180))          # Add 90 NA's in front of s1_180
+s <- cbind(res$fitted.values[, 1], t90, t180)
+
+# To be appeared in plot
+colnames(s) <- c("GARCH", "90-day Moving SD", "180-day Moving SD")
+
+# %>%: pipe operator
+newseries <- as.data.frame(s) %>% 
+    gather(type, value) %>%
+    mutate(time = rep(time(s), 3))
+
+plot_ly(x = newseries$time, y = newseries$value, color = newseries$type, mode = 'lines')
+```
+
+There are some clustered and spiky patterns in the estimated volatilities from GARCH(1,1) while the plot of the estimated volatilities using the moving s.d. tends to smooth out these spiky patterns.
