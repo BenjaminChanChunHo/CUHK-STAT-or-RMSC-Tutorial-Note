@@ -35,4 +35,4 @@ Tutorial 5: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_
 <a href = "https://www.youtube.com/watch?v=dzFf3r1yph8" target = "_blank">Joseph Blitzstein: "The Soul of Statistics"</a> (Professor of Statistics at Harvard University) <br />
 <a href = "https://www.youtube.com/watch?v=WMDAR2bZEp0&t=15s" target = "_blank">Roger Peng: This is Statistics</a> (Professor of Biostatistics at Johns Hopkins University and blogger of <a href = "https://simplystatistics.org/" target = "_blank">Simply Statistics</a>) <br />
 <a href = "https://www.youtube.com/watch?v=40riCqvRoMs&t=86s" target = "_blank">Fei Fei Li: How we teach computers to understand pictures</a> (Professor of Computer Science at Stanford University) <br />
-<a href = "https://www.youtube.com/watch?v=KhAUfqhLakw&t=618s" target = "_blank">Jake VanderPlas: Frequentism and Bayesianism: What's the Big Deal?</a> (Data scientist and researcher)
+<a href = "https://www.youtube.com/watch?v=KhAUfqhLakw&t=618s" target = "_blank">Jake VanderPlas: Frequentism and Bayesianism</a> (Data scientist and researcher)
