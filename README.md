@@ -28,7 +28,8 @@ Tutorial 1: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_
 Tutorial 2: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_2" target = "_blank">Check for Univariate Normal Distribution in R</a> (using stock price data) <br />
 Tutorial 3: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_3" target = "_blank">Check for and Generate Multivariate Normal Distribution in R and Excel</a> (using stock price data) <br />
 Tutorial 4: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_4" target = "_blank">Estimate Volatility and Correlation in R</a> (using stock price data) <br />
-Tutorial 5: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_5" target = "_blank">Calculate Value at Risk (VaR) in R</a> (using stock price data)
+Tutorial 5: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_5" target = "_blank">Calculate Value at Risk (VaR) in R</a> (using stock price data) <br />
+Tutorial 6: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_6" target = "_blank">Principal Component Analysis (PCA) in R</a> (using zero-coupon bond data)
 
 ### Just for Fun
 <a href = "https://www.youtube.com/watch?v=xC-c7E5PK0Y" target = "_blank">Joma Tech: What is Data Science? Told by a Data Scientist</a> (YouTube channel) <br />
