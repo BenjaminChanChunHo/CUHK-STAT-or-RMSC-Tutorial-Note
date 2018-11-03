@@ -1,0 +1,178 @@
+---
+title: "CUHK RMSC4002 Tutorial 7"
+author: "Benjamin Chan"
+date: "November 6, 2018"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", fig.align = "center")
+```
+
+#### Reference
+1. Applied Multivariate Statistical Analysis (Johnson & Wichern)
+2. (Optional) Generalized Linear Models (McCullagh and Nelder)
+
+#### Regression Analysis
+##### Objective
+1. Prediction: Predicting values of one or more response (dependent) variables from a collection of predictor (independent) variables
+2. Inference: Assessing the effects of the predictor variables on the responses.
+
+#### (Optional) Generalized Linear Model (GLM)
+Materials do credit to Prof. Xinyuan Song. Only two special cases (linear and logistic regression) are discussed here.
+
+##### Three components in a GLM
+1. A random component $Y$ has the probability distribution in the exponential family (including normal and Bernoulli distributions). </br>
+2. A systematic component $\eta=\sum_{j=1}^p \beta_jx_j$. </br>
+3. A link function $g(\cdot)$ relates the random and systematic components: $g(\mu)=\eta$, where $\mu=E(Y)$ and $g(\cdot)$ is monotonic and differentiable.
+
+##### Linear Regression is a GLM
+Note that linear regression can be solved without assuming normal distribution. Let
+$$Y=\sum_{j=1}^p \beta_jx_j+\epsilon, \hspace{5mm} \epsilon\sim N(0,\sigma^2),$$
+1. The random component $Y\sim N(\mu,\sigma^2)$, where $\mu=E(Y)=\sum_{j=1}^p \beta_jx_j$. </br>
+2. The systematic component $\eta=\sum_{j=1}^p \beta_jx_j$. When $x_1=1$, $\beta_1$ is the intercept in the model.</br>
+3. The link between the random and systematic components $\eta=g(\mu)=\mu$ (identity link).
+
+##### Logistic Regression is a GLM
+Let
+$$\text{logit}(\pi)=\log\bigg(\frac{\pi}{1-\pi}\bigg)=\sum_{j=1}^p
+\beta_j x_j,$$
+1. The binomial component $Y\sim B(1,\pi)$, where $\pi=E(Y)$. </br>
+2. The systematic component $\eta=\sum_{j=1}^p \beta_jx_j$. When $x_1=1$, $\beta_1$ is the intercept in the model.</br>
+3. The link between the random and systematic components $\eta=g(\mu)=\text{log}(\frac{\pi}{1-\pi})$ (logit link).
+
+#### Implementation of Linear Regression
+##### Basic Knowledge
+Let $x_1,x_2,\dots,x_k$ be $k$ predictor variables thought to be related to a response variable $y$. The fixed-$x$ linear regression model states that $y$ is composed of a mean, which depends in a continuous manner on the $x_i$'s, and a random error $\varepsilon$, which accounts for measurement error and the effects of other variables not explicitly considered in the model.
+
+Specifically, the linear regression model with a single response takes the form
+$$y=\beta_0+\beta_1x_1+\cdots+\beta_k x_k+\varepsilon.$$
+The $\beta$'s are called regression coefficients. The term "linear" refers to the fact that the mean is a linear function of the unknown parameters $\beta_0,\beta_1,\dots,\beta_k$.
+
+With $n$ independent observations on $y$ and the associated values of $x_i$, the complete model becomes
+$$\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n\end{bmatrix}=\begin{bmatrix} 1 & x_{11} & x_{12} & \cdots & x_{1k} \\ 1 & x_{21} & x_{22} & \cdots & x_{2k} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 1 & x_{n1} & x_{n2} & \cdots & x_{nk} \end{bmatrix} \begin{bmatrix} \beta_0 \\ \beta_1 \\ \vdots \\ \beta_k \end{bmatrix}+\begin{bmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \vdots \\ \varepsilon_n
+\end{bmatrix}$$
+or 
+$$Y=X\beta+\varepsilon$$
+where the error terms are assumed to be uncorrelated with mean zero and constant variance: </br>
+1. $E(\varepsilon_i)=0$ for all $i$; </br>
+2. $\text{Var}(\varepsilon_i)=\sigma^2$ for all $i$; </br>
+3. $\text{Cov}(\varepsilon_i,\varepsilon_j)=0$ for all $i\neq j$. </br>
+
+If $X$ has full rank, then the least squares estimator of $\beta$ is
+$$\hat{\beta}=(X'X)^{-1}X'Y.$$
+
+##### Example of Misuse of Linear Regression
+The csv file `fin-ratio.csv` contains financial ratios of 680 securities listed in the main board of Hong Kong Stock Exchange in 2002. There are six financial variables, namely, Earning Yield (EY), Cash Flow to Price (CFTP), logarithm of Market Value (ln MV), Dividend Yield (DY), Book to Market Equity (BTME), Debt to Equity Ratio (DTE). Among these companies, there are 32 Blue Chips which are the Hang Seng Index Constituent Stocks. The last column HSI is a binary variable indicating whether the stock is a Blue Chip or not.
+```{r}
+d <- read.csv("./../Dataset/fin-ratio.csv")         # Read in data
+names(d)                                            # Display the variable names
+
+summary(lm(HSI~EY+CFTP+ln_MV+DY+BTME+DTE, data = d))
+
+summary(lm(HSI~EY+CFTP+ln_MV+DY+BTME, data = d))    # Exclude DTE (with the largest p-value)
+
+summary(lm(HSI~EY+CFTP+ln_MV+DY, data = d))         # Exclude BTME (with the largest p-value)
+
+summary(lm(HSI~CFTP+ln_MV+DY, data = d))            # Exclude EY (with the largest p-value)
+
+summary(lm(HSI~CFTP+ln_MV, data = d))               # Exclude DY (with the largest p-value)
+
+reg <- lm(HSI~CFTP+ln_MV, data = d)                 # Save the regression results
+names(reg)                                          # Display the items contained in reg
+```
+
+We have done a backward elimination manually. In fact, it can be done by the program (see later sections). The model is incorrect in the sense that HSI can only be 0 or 1 but the fitted values can be any real number.
+
+```{r}
+par(mfrow = c(2, 2))                                # Set a 2x2 multiple frame for graphics
+plot(reg$fit,reg$resid)                             # Residuals vs fitted values
+qqnorm(reg$resid)                                   # QQ-normal plot of residuals
+qqline(reg$resid)                                   # Add reference line
+res <- as.ts(reg$resid)                             # Change res to time series
+plot(res,lag(res))                                  # Residuals vs lag(residuals)
+plot(reg$resid)                                     # Residuals vs index number
+```
+
+We can see patterns in the diagnostic plots. Linear regression should not be used mainly because HSI is binary. Logistic regression is an alternative.
+
+#### Implementation of Logistic Regression
+Consider a GLM with binary data. More specifically, logistic regression model is $$\text{logit}(\pi)=\log\bigg(\frac{\pi}{1-\pi}\bigg)=\sum_{j=1}^p
+\beta_j x_j,$$
+where $\pi$ is regarded as the probability of success.
+
+Let $y=(y_1,\dots,y_n)$, where $y_i$ is the number of successes among $n_i$ observations, $x_i=(x_{i1},\dots,x_{ip})$, $i=1,\dots,n$, and $\beta=(\beta_1,\dots,\beta_p)$. An alternative representation of logistic regression model is
+$$\pi(x_i)=\frac{\text{exp}(\sum_{j=1}^p\beta_jx_{ij})}{1+\text{exp}(\sum_{j=1}^p\beta_jx_{ij})}.$$
+
+##### Fit with Full Model and Full Data
+```{r, warning = FALSE}
+# glm: fit generalized linear models
+lreg <- glm(HSI~., data = d, family = binomial)
+summary(lreg)
+names(lreg)                                         # Display item in lreg
+pred1 <- (lreg$fitted.values>0.5)                   # Prediction
+table(pred1, d$HSI)                                 # Classification table
+```
+
+From the table, the correct classification rate is `r round(sum(pred1==d$HSI)/nrow(d),4)*100`%.
+
+##### Outlier Detection
+From the extremely large coefficients in MLE, we suspect that there are outliers. Outlier detection can be done by using Mahalanobis distance introduced in Tutorial 3:
+$$D^2=(x-\bar{x})'S^{-1}(x-\bar{x})$$
+Observations with large distance are potential outliers.
+```{r}
+mdist <- function(x) {
+    t <- as.matrix(x)                               # Transform x to a matrix
+    m <- apply(t, 2, mean)                          # Compute column means
+    s <- var(t)                                     # Compute sample covariance matrix
+    mahalanobis(t, m, s)                            # Using built-in Mahalanobis function
+}
+
+d0 <- d[d$HSI==0,]                                  # Select HSI = 0
+d1 <- d[d$HSI==1,]                                  # Select HSI = 1
+dim(d0)
+dim(d1)
+```
+
+We only detect and throw away the outliers in d0 since d1 contains only 32 cases. 
+
+```{r}
+x <- d0[,1:6]                                       # Exclude HSI, which are all 0
+md <- mdist(x)                                      # mdist: self-defined function
+
+par(mfrow = c(1, 1))
+plot(md)                                            # Plot Mahalanobis distances
+```
+
+```{r}
+# Cutoff for testing normality: p = 6 (six financial variables) and type-I error = 0.01
+(c <- qchisq(0.99, df = 6))                         
+d2 <- d0[md<c,]                                     # Select cases from d0 with md<c
+dim(d2)                                             # Throw away 648-626=22 cases
+d3 <- rbind(d1, d2)                                 # Combine d1 with d2 to form a cleaned dataset
+dim(d3)
+
+# Save the cleaned dataset as fin-ratio1.csv
+write.csv(d3, file = "./../Dataset/fin-ratio1.csv", row.names = F)
+```
+
+##### Fit with Backward Elimination and Clean Data
+Fit a logistic regression to `fin-ratio1.csv`.
+```{r, warning = FALSE}
+# First fit with all variables
+lreg <- glm(HSI~., data = d3, family = binomial)
+
+# step: choose a model by AIC in a Stepwise Algorithm
+lreg <- step(lreg, direction = "backward", trace = 0)       
+summary(lreg)
+
+pred2 <- (lreg$fitted.values>0.5)                   # Prediction
+table(pred2, d3$HSI)                                # Classification table
+```
+
+From the table, the correct classification rate is `r round(sum(pred2==d3$HSI)/nrow(d3),4)*100`%, which is higher than that using full model and full data (`r round(sum(pred1==d$HSI)/nrow(d),4)*100`%).
