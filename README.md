@@ -36,7 +36,8 @@ Tutorial 4: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_
 Tutorial 5: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_5" target = "_blank">Calculate Value at Risk (VaR) in R</a> <br />
 Tutorial 6: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_6" target = "_blank">Principal Component Analysis (PCA) in R</a> <br />
 Tutorial 7: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_7" target = "_blank">Fit Logistic Regression Model in R</a> <br />
-Optional: Reference (Tutorial 0), Linear Algebra and Matrix Theory Proof (Tutorial 1), Introduction to Generalized Linear Model (Tutorial 7)
+
+Optional: <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/RMSC4002/Tutorial%200/RMSC4002_Tutorial_0_Optional_Reference.pdf" target = "_blank">Reference Courses</a>, <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/RMSC4002/Tutorial%201/RMSC4002_Tutorial_1_Proof.pdf" target = "_blank">Selected Linear Algebra Proof</a>, <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_7" target = "_blank">Introduction to Generalized Linear Model</a>
 
 ### Just for Fun
 <a href = "https://www.youtube.com/watch?v=xC-c7E5PK0Y" target = "_blank">Joma Tech: What is Data Science? Told by a Data Scientist</a> (YouTube channel) <br />
