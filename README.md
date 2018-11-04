@@ -28,14 +28,15 @@ This course covers modern data analysis techniques that are commonly used in fin
 #### 18-19 Term 1 (Current), Course Instructor: Prof. Phillip Yam, Student No: 47
 Many materials do credit to former instructor Prof. Pui Lam Leung. Stock price, zero-coupon bond and financial ratio data are used for illustration.
 
-Tutorial 0: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_0" target = "_blank">Introduction to R</a> (including optional reference) <br />
-Tutorial 1: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_1" target = "_blank">Basic Matrix Operation in R</a> (including selected proof) <br />
+Tutorial 0: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_0" target = "_blank">Introduction to R</a> <br />
+Tutorial 1: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_1" target = "_blank">Basic Matrix Operation in R</a>  <br />
 Tutorial 2: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_2" target = "_blank">Check for Univariate Normal Distribution in R</a> <br />
 Tutorial 3: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_3" target = "_blank">Check for and Generate Multivariate Normal Distribution in R and Excel</a> <br />
 Tutorial 4: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_4" target = "_blank">Estimate Volatility and Correlation in R</a> <br />
 Tutorial 5: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_5" target = "_blank">Calculate Value at Risk (VaR) in R</a> <br />
 Tutorial 6: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_6" target = "_blank">Principal Component Analysis (PCA) in R</a> <br />
-Tutorial 7: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_7" target = "_blank">Fit Logistic Regression Model in R</a> (including optional introduction to generalized linear model)
+Tutorial 7: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_7" target = "_blank">Fit Logistic Regression Model in R</a> <br />
+Optional: Reference (Tutorial 0), Linear Algebra and Matrix Theory Proof (Tutorial 1), Introduction to Generalized Linear Model (Tutorial 7)
 
 ### Just for Fun
 <a href = "https://www.youtube.com/watch?v=xC-c7E5PK0Y" target = "_blank">Joma Tech: What is Data Science? Told by a Data Scientist</a> (YouTube channel) <br />
