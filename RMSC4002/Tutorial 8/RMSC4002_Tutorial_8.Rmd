@@ -1,0 +1,183 @@
+---
+title: "CUHK RMSC4002 Tutorial 8"
+author: "Benjamin Chan"
+date: "November 13, 2018"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", fig.align = "center")
+```
+
+### Classification Tree, Random Forests and Gradient Boosting
+
+### (Optional) Reference
+1. [The Elements of Statistical Learning](https://web.stanford.edu/~hastie/ElemStatLearn/) by Hastie, Tibshirani and Friedman
+2. [An Introduction to Statistical Learning](https://www-bcf.usc.edu/~gareth/ISL/) by James, Witten, Hastie and Tibshirani
+3. [Random Forests](https://link.springer.com/article/10.1023/A:1010933404324) by Breiman, appeared in *Machine Learning* in 2001
+4. [Additive Logistic Regression: a Statistical View of Boosting](https://projecteuclid.org/euclid.aos/1016218223#abstract) by Friedman, Hastie, Tibshirani, appeared in *The Annals of Statistics* in 2000
+5. [Greedy Function Approximation: A Gradient Boosting Machine](https://projecteuclid.org/euclid.aos/1013203451) by Friedman, appeared in *The Annals of Statistics* in 2001
+6. [Stochastic Gradient Boosting](https://www.sciencedirect.com/science/article/pii/S0167947301000652) by Friedman, appeared in *Computational Statistics & Data Analysis* in 2002
+
+### Packages
+```{r, warning = FALSE, message = FALSE}
+library(rpart)                                       # Recursive Partitioning and Regression Trees
+library(caret)                                       # Classification and Regression Training
+library(rattle)                                      # Graphical User Interface for Data Science
+library(randomForest)                                # Random Forests for Classification and Regression
+
+library(ggplot2)                                     # Data Visualisations Using the Grammar of Graphics
+library(ggthemes)                                    # Extra Themes, Scales and Geoms for 'ggplot2'
+library(dplyr)                                       # A Grammar of Data Manipulation
+```
+
+### Classification Tree
+#### Financial Ratio Data
+Please refer to Tutorial 7 for data description of `fin-ratio.csv`.
+```{r}
+d <- read.csv("./../Dataset/fin-ratio.csv")          # Read in data
+str(d)
+
+ctree <- rpart(HSI~., data = d, method = "class")    # Recursive Partitioning and Regression Trees
+plot(ctree, asp = 0.5, main = "Fin-ratio")           # Plot tree (asp: aspect ratio)
+text(ctree, use.n = T, cex = 0.6)                    # Add text  (cex: character expansion factor)
+
+fancyRpartPlot(ctree, sub = "")                      # fancyRpartPlot: use the pretty rpart plotter
+
+print(ctree)                                         # Print tree
+```
+
+The classification rules are:  <br />
+1. If ln MV $<$ 9.478 then class $=$ 0. <br />
+2. If ln MV $\geq$ 9.478 then class $=$ 1.
+
+##### Data Visualization
+```{r}
+# Visualize performance: HSI = 0 (red) and HSI = 1 (blue)
+plot(d$HSI, d$ln_MV, pch = 21, bg = c("red", "blue")[d$HSI+1], xlab = "HSI", ylab = "ln_MV")
+abline(h = 9.478)                                    # Add a horizontal line (decision boundary)
+
+pr <- predict(ctree)                                 # pr has 2 columns of prob. in group 0 or 1
+cl <- 0*(pr[,1]>0.5) + 1*(pr[,2]>0.5)                # Assign group label if prob>0.5
+HSI <- d$HSI                                         # To display in table
+table(cl, HSI)                                       # Classification table
+```
+
+#### Iris Data
+The famous Fisher's iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are iris setosa, versicolor, and virginica.
+```{r}
+data(iris)                                           # data: load specified data sets
+str(iris)
+
+ctree <- rpart(Species~., data = iris, method = "class")
+plot(ctree, asp = 1)
+text(ctree, use.n = T, cex = 0.6)
+
+fancyRpartPlot(ctree, sub = "")                      # fancyRpartPlot: use the pretty rpart plotter
+
+print(ctree)
+```
+
+The classification rules are: <br />
+1. If Petal.Length $<$ 2.45 then Species $=$ 1 (setosa) (50/0/0). <br />
+2. If (Petal.Length $\geq$ 2.45) and (Petal.Width $<$ 1.75) then Species $=$ 2 (versicolor) (0/49/5). <br />
+3. If (Petal.Length $\geq$ 2.45) and (Petal.Width $\geq$ 1.75) then Species $=$ 3 (virginica) (0/1/45).
+
+##### Data Visualization
+```{r}
+# with(data, expr, ...)
+with(iris,
+     plot(Petal.Length, Petal.Width, pch = 21, bg = c("red", "blue", "green")[Species]))
+
+plot(iris$Petal.Length, iris$Petal.Width, pch = 21, col = iris$Species, xlab = "Petal.Length", ylab = "Petal.Width")
+abline(h = 1.75)
+abline(v = 2.45)
+
+pr <- predict(ctree)
+head(pr)
+tail(pr)
+cl <- colnames(pr)[max.col(pr)]
+table(cl, iris$Species)
+```
+
+#### Cross-validation Version
+```{r}
+set.seed(12345)
+
+# trainControl: control parameters for train
+trControl <- trainControl(method = "cv", number = 5)
+
+# train: Fit Predictive Models over Different Tuning Parameters
+model_CT <- train(Species~., data = iris, method = "rpart", trControl = trControl)
+
+predict_CT <- predict(model_CT, data = iris)
+
+# confusionMatrix: calculate a cross-tabulation of observed and predicted classes
+(conf_matrix_CT <- confusionMatrix(iris$Species, predict_CT))
+
+(class_table_CT <- conf_matrix_CT$table)
+(accuracy_CT <- conf_matrix_CT$overall[1])
+```
+
+### (Optional) Random Forests
+The training algorithm for random forests applies the general technique of bootstrap aggregating, or bagging, to tree learners. The aim is to decorrelate the trees and then take advantage of averaging trees. Moreover, a random sample of $m$ predictors is chosen as split candidates from the full set of $p$ predictors. For more details, please refer to the reference.
+
+#### Using package 'caret'
+```{r}
+set.seed(12345)
+
+model_RF <- train(Species~., data = iris, method = "rf", trControl = trControl)
+print(model_RF)
+
+predict_RF <- predict(model_RF, iris)
+conf_matrix_RF <- confusionMatrix(iris$Species, predict_RF)
+(class_table_RF <- conf_matrix_RF$table)
+(accuracy_RF <- conf_matrix_RF$overall[1])
+```
+
+#### Using package 'randomForest'
+```{r, warning = FALSE}
+set.seed(12345)
+
+(rf_model <- randomForest(Species~., data = iris))
+
+mean(predict(rf_model) == iris$Species)
+
+plot(rf_model, ylim = c(0,0.2), main = "")
+legend('topright', colnames(rf_model$err.rate), col = 1:4, fill = 1:4)
+
+(importance <- importance(rf_model))
+
+varImportance <- data.frame(Variables = row.names(importance), 
+                            Importance = round(importance[ ,'MeanDecreaseGini'], 2))
+
+rankImportance <- varImportance %>% 
+    mutate(Rank = paste0('#', dense_rank(desc(Importance))))
+
+(rankImportance <- rankImportance[order(rankImportance$Importance, decreasing = T), ])
+
+ggplot(rankImportance, aes(x = reorder(Variables, Importance), y = Importance, fill = Importance)) +
+       geom_bar(stat = 'identity') + 
+       labs(x = 'Variables') +
+       coord_flip() + 
+       theme_few()
+```
+
+### (Optional) Gradient Boosting
+The motivation for boosting is to combine the outputs of many "weak" classifiers to produce a powerful "committee". Trees are grown sequentially. Given the current model, boosting fits a decision tree to the residuals from the model. To learn slowly and avoid overfitting, shrinkage is used. Gradient boosting can be viewed as iterative functional gradient descent algorithms. For more details, please refer to the reference.
+```{r}
+set.seed(12345)
+
+model_GBM <- train(Species~., data = iris, method = "gbm", trControl = trControl, verbose = FALSE)
+print(model_GBM)
+
+predict_GBM <- predict(model_GBM, iris)
+conf_matrix_GBM <- confusionMatrix(iris$Species, predict_GBM)
+(class_table_GBM <- conf_matrix_GBM$table)
+(accuracy_GBM <- conf_matrix_GBM$overall[1])
+```
