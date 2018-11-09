@@ -17,7 +17,7 @@ This course covers basic theories in estimation and testing. Topics include poin
 
 #### 17-18 Term 2, Course Instructor: Prof. Phillip Yam, Student No: 218
 Tutorial 0: Review of Discrete and Continuous Probability Distributions <br />
-Tutorial 5: Point Estimation (Optional - Frequentist vs Bayesian Statistician) <br />
+Tutorial 5: Point Estimation (Optional - <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%205/STAT2006_Tutorial_5_Optional_Topic.pdf" target = "_blank">Frequentist vs Bayesian Statistician</a>) <br />
 Tutorial 6: Midterm Revision - Point Estimation Exercises <br />
 Tutorial 7: Confidence Intervals for Mean <br />
 Tutorial 8: Confidence Interval for Variance and Proportion
@@ -36,6 +36,7 @@ Tutorial 4: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_
 Tutorial 5: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_5" target = "_blank">Calculate Value at Risk (VaR) in R</a> <br />
 Tutorial 6: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_6" target = "_blank">Principal Component Analysis (PCA) in R</a> <br />
 Tutorial 7: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_7" target = "_blank">Fit Logistic Regression Model in R</a> <br />
+Tutorial 8: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_8" target = "_blank">Fit Classification Tree, Random Forests and Gradient Boosting in R</a>
 
 Optional: <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/RMSC4002/Tutorial%200/RMSC4002_Tutorial_0_Optional_Reference.pdf" target = "_blank">Reference Courses</a>, <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/RMSC4002/Tutorial%201/RMSC4002_Tutorial_1_Proof.pdf" target = "_blank">Selected Linear Algebra Proof</a>, <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_7" target = "_blank">Introduction to Generalized Linear Model</a>
 
