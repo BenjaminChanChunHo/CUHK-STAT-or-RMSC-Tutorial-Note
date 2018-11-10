@@ -26,7 +26,7 @@ Tutorial 8: Confidence Interval for Variance and Proportion
 This course covers modern data analysis techniques that are commonly used in financial and risk management. Topics include applications of multivariate techniques such as principal component and canonical correlation to asset management, Value-at-Risks, GARCH model in estimating volatility, time series methods in term-structure analysis, and data mining methods such as logistic regression, k-mean clustering and classification tree, and neural network.
 
 #### 18-19 Term 1 (Current), Course Instructor: Prof. Phillip Yam, Student No: 47
-Many materials do credit to former instructor Prof. Pui Lam Leung. Stock price, zero-coupon bond and financial ratio data are used for illustration.
+Many materials do credit to former instructor Prof. Pui Lam Leung. Related theories are covered in lectures while implementation in R is focused in tutorial classes. Stock price, zero-coupon bond, financial ratio and iris data are used for illustration.
 
 Tutorial 0: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_0" target = "_blank">Introduction to R</a> <br />
 Tutorial 1: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_1" target = "_blank">Basic Matrix Operation in R</a>  <br />
