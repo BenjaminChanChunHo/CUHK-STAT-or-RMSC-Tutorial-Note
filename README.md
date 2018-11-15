@@ -17,10 +17,12 @@ This course covers basic theories in estimation and testing. Topics include poin
 
 #### 17-18 Term 2, Course Instructor: Prof. Phillip Yam, Student No: 218
 Tutorial 0: Review of Discrete and Continuous Probability Distributions <br />
-Tutorial 5: Point Estimation (Optional - <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%205/STAT2006_Tutorial_5_Optional_Topic.pdf" target = "_blank">Frequentist vs Bayesian Statistician</a>) <br />
+Tutorial 5: Point Estimation <br />
 Tutorial 6: Midterm Revision - Point Estimation Exercises <br />
 Tutorial 7: Confidence Intervals for Mean <br />
 Tutorial 8: Confidence Interval for Variance and Proportion
+
+Optional: <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%205/STAT2006_Tutorial_5_Optional_Topic.pdf" target = "_blank">Frequentist vs Bayesian Statistician</a>
 
 ### RMSC4002 Data Analysis in Finance and Risk Management Science 
 This course covers modern data analysis techniques that are commonly used in financial and risk management. Topics include applications of multivariate techniques such as principal component and canonical correlation to asset management, Value-at-Risks, GARCH model in estimating volatility, time series methods in term-structure analysis, and data mining methods such as logistic regression, k-mean clustering and classification tree, and neural network.
@@ -42,10 +44,12 @@ Tutorial 9: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_
 Optional: <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/RMSC4002/Tutorial%200/RMSC4002_Tutorial_0_Optional_Reference.pdf" target = "_blank">Reference Courses</a>, <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/RMSC4002/Tutorial%201/RMSC4002_Tutorial_1_Proof.pdf" target = "_blank">Selected Linear Algebra Proof</a>, <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_7" target = "_blank">Introduction to Generalized Linear Model</a>
 
 ### Just for Fun
-<a href = "https://www.youtube.com/watch?v=xC-c7E5PK0Y" target = "_blank">Joma Tech: What is Data Science? Told by a Data Scientist</a> (YouTube channel) <br />
-<a href = "https://www.youtube.com/watch?v=dzFf3r1yph8" target = "_blank">Joseph Blitzstein: "The Soul of Statistics"</a> (Professor of Statistics at Harvard University) <br />
-<a href = "https://www.youtube.com/watch?v=WMDAR2bZEp0&t=15s" target = "_blank">Roger Peng: This is Statistics</a> (Professor of Biostatistics at Johns Hopkins University and blogger of <a href = "https://simplystatistics.org/" target = "_blank">Simply Statistics</a>) <br />
-<a href = "https://www.youtube.com/watch?v=U0XIBBuJal4" target = "_blank">Brian Caffo: Machine Learning versus Classical Statistics</a> (Professor of Biostatistics at Johns Hopkins University) <br />
-<a href = "https://www.youtube.com/watch?v=40riCqvRoMs&t=86s" target = "_blank">Fei Fei Li: How we teach computers to understand pictures</a> (Professor of Computer Science at Stanford University) <br />
-<a href = "https://www.youtube.com/watch?v=KhAUfqhLakw&t=618s" target = "_blank">Jake VanderPlas: Frequentism and Bayesianism</a> (Data scientist and researcher) <br />
-<a href = "https://www.youtube.com/watch?v=yakg94HyWdE&index=13&t=0s&list=PLEQ-ymviqWk_KbnJKZo2-5ADUS748Uo18" target = "_blank">Richard McElreath: Bayesian Statistics without Frequentist Language</a> (Ecologist)
+<a href = "https://www.youtube.com/watch?v=xC-c7E5PK0Y" target = "_blank">What is Data Science? Told by a Data Scientist</a> by Joma Tech, YouTube Channel <br />
+<a href = "https://www.youtube.com/watch?v=dzFf3r1yph8" target = "_blank">The Soul of Statistics</a> by Joseph Blitzstein, Professor of Statistics at Harvard University <br />
+<a href = "https://www.youtube.com/watch?v=WMDAR2bZEp0&t=15s" target = "_blank">This is Statistics</a> by Roger Peng, Professor of Biostatistics at Johns Hopkins University and Blogger of <a href = "https://simplystatistics.org/" target = "_blank">Simply Statistics</a> <br />
+<a href = "https://www.youtube.com/watch?v=U0XIBBuJal4" target = "_blank">Machine Learning versus Classical Statistics</a> by Brian Caffo, Professor of Biostatistics at Johns Hopkins University <br />
+<a href = "https://www.youtube.com/watch?v=40riCqvRoMs&t=86s" target = "_blank">How We Teach Computers to Understand Pictures</a> by Fei Fei Li, Professor of Computer Science at Stanford University <br />
+<a href = "https://www.youtube.com/watch?v=KhAUfqhLakw&t=618s" target = "_blank">Frequentism and Bayesianism</a> by Jake VanderPlas, Data Scientist and Researcher <br />
+<a href = "https://www.youtube.com/watch?v=yakg94HyWdE&index=13&t=0s&list=PLEQ-ymviqWk_KbnJKZo2-5ADUS748Uo18" target = "_blank">Bayesian Statistics without Frequentist Language</a> by Richard McElreath, Ecologist <br />
+<a href = "https://www.youtube.com/watch?v=xgUBdi2wcDI&t=787s&list=PLEQ-ymviqWk_KbnJKZo2-5ADUS748Uo18&index=5" target = "_blank">Bayes, Statistics and Reproducibility</a> by Andrew Gelman, Professor of Statistics at Columbia University <br />
+<a href = "https://www.youtube.com/watch?v=jD8Jg17GxK8&t=76s" target = "_blank">AI is the New Electricity</a> by Andrew Ng, Professor of Computer Science at Stanford University and Co-founder of <a href = "https://www.coursera.org/" target = "_blank">Coursera</a>
