@@ -1,0 +1,122 @@
+---
+title: "CUHK RMSC4002 Tutorial 9"
+author: "Benjamin Chan"
+date: "November 20, 2018"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", fig.align = "center")
+```
+
+### (Optional) Reference
+1. Machine Learning Course by Andrew Ng: </br>
+https://www.coursera.org/learn/machine-learning
+2. Deep Learning Specialization by Andrew Ng: </br>
+https://www.coursera.org/specializations/deep-learning
+3. Deep Learning Book by Ian Goodfellow, Yoshua Bengio and Aaron Courville: </br>
+http://www.deeplearningbook.org/
+
+### Packages
+```{r, warning = FALSE, message = FALSE}
+library(nnet)                                        # Feed-forward neural networks with one hidden layer
+```
+
+### Artificial Neural Network
+The famous Fisher's iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are iris setosa, versicolor, and virginica.
+```{r}
+data(iris)                                           # data: load specified data sets
+str(iris)
+
+X <- iris[,1:4]
+Y <- (iris[,5] == "setosa")*1 + (iris[,5] == "versicolor")*2 + (iris[,5] == "virginica")*3
+```
+
+#### Linear Output
+```{r}
+# 4-2-1 Neural Network
+iris.nn <- nnet(X, Y, size = 2, linout = T)          # 2 units in hidden layer; linear output
+summary(iris.nn)                                     # Summary of output
+```
+
+The result is summarized as: 
+$$\begin{aligned}
+h_1&=`r round(iris.nn$wts[1],2)`+(`r round(iris.nn$wts[2],2)`)x_1+(`r round(iris.nn$wts[3],2)`)x_2+(`r round(iris.nn$wts[4],2)`)x_3+(`r round(iris.nn$wts[5],2)`)x_4\\
+h_2&=`r round(iris.nn$wts[6],2)`+(`r round(iris.nn$wts[7],2)`)x_1+(`r round(iris.nn$wts[8],2)`)x_2+(`r round(iris.nn$wts[9],2)`)x_3+(`r round(iris.nn$wts[10],2)`)x_4\\
+h_1'&=\frac{\text{exp}(h_1)}{1+\text{exp}(h_1)} \\
+h_2'&=\frac{\text{exp}(h_2)}{1+\text{exp}(h_2)}\\
+v&=`r round(iris.nn$wts[11],2)`+(`r round(iris.nn$wts[12],2)`)h_1'+(`r round(iris.nn$wts[13],2)`)h_2'
+\end{aligned}$$
+
+```{r}
+pred <- round(iris.nn$fit)                           # Round the fitted values
+table(iris[,5], levels(iris$Species)[pred])          # Classification table
+```
+
+#### Improved Version
+To avoid parameter estimates trapped at a local minimum of the error function, we can run several times from different sets of initial parameter values in order to get the optimal weights of ANN (hopefully the true global minimum).
+```{r}
+# Try nnet(x,y) k times and output the best trial
+# x is the matrix of input variable
+# y is the dependent value; y must be factor if linout = F is used
+
+ann <- function(x, y, size, maxit = 100, linout = FALSE, try = 5, ...) {
+    ann1 <- nnet(y~., data = x, size = size, maxit = maxit, linout = linout, ...)
+    v1 <- ann1$value                                 # First trial
+
+    for (i in 2:try) {
+        ann <- nnet(y~., data = x, size = size, maxit = maxit, linout = linout, ...)
+        if (ann$value < v1) {
+            v1 <- ann$value
+            ann1 <- ann
+        }
+    }
+    return(ann1)
+} 
+```
+
+#### Logistic Output 
+The csv file `fin-ratio.csv` contains financial ratios of 680 securities listed in the main board of Hong Kong Stock Exchange in 2002. There are six financial variables, namely, Earning Yield (EY), Cash Flow to Price (CFTP), logarithm of Market Value (ln MV), Dividend Yield (DY), Book to Market Equity (BTME), Debt to Equity Ratio (DTE). Among these companies, there are 32 Blue Chips which are the Hang Seng Index Constituent Stocks. The last column HSI is a binary variable indicating whether the stock is a Blue Chip or not.
+```{r, results = 'hide'}
+d <- read.csv("./../Dataset/fin-ratio.csv")          
+
+Y <- as.factor(d$HSI)                                # Output: Y
+
+var <- names(d)[!names(d) %in% "HSI"]                # Exclude HSI
+X <- d[,var]                                         # Input:  X
+
+# results = 'hide', Default: logistic output
+fin.nn <- ann(X, Y, size = 2, maxit = 200, try = 10)
+```
+
+```{r}
+summary(fin.nn)
+
+fin.nn$value                                         # Display the best value
+
+Prediction <- round(fin.nn$fit)
+Reference <- d$HSI                                   # Ground-truth labels
+
+table(Prediction, Reference)                         # Classification table
+```
+
+##### Measure of Performance
+Note that: $$\begin{aligned}
+\text{Accuracy}&=\frac{\text{True Positive}+\text{True Negative}}{\text{Total Observation No}}=\frac{TP+TN}{TP+TN+FP+FN}\\ \\
+\text{Precision}&=\frac{\text{True Positive}}{\text{True Positive}+\text{False Positive}}=\frac{TP}{TP+FP}\\ \\
+\text{Recall}&=\frac{\text{True Positive}}{\text{True Positive}+\text{False Negative}}=\frac{TP}{TP+FN} \\ \\
+F_1&=\bigg(\frac{\text{Recall}^{-1}+\text{Precision}^{-1}}{2}\bigg)^{-1}=2\cdot\frac{\text{Precision}\cdot\text{Recall}}{\text{Precision}+\text{Recall}}\end{aligned}$$
+```{r}
+(Accuracy <- sum((Prediction == Reference))/length(Prediction))
+(Precision <- sum(Prediction == 1 & Reference == 1)/sum(Prediction == 1))
+(Recall <- sum(Prediction == 1 & Reference == 1)/sum(Reference == 1))
+(F1 <- 1/((1/Precision + 1/Recall)/2))
+```
+
+#### Remark
+Training error rate does not reflect the classification performance accurately. In fact, you can randomly choose some observations as training data and remaining observations as testing data.
