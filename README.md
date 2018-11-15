@@ -36,7 +36,8 @@ Tutorial 4: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_
 Tutorial 5: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_5" target = "_blank">Calculate Value at Risk (VaR) in R</a> <br />
 Tutorial 6: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_6" target = "_blank">Principal Component Analysis (PCA) in R</a> <br />
 Tutorial 7: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_7" target = "_blank">Fit Logistic Regression Model in R</a> <br />
-Tutorial 8: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_8" target = "_blank">Fit Classification Tree, Random Forests and Gradient Boosting in R</a>
+Tutorial 8: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_8" target = "_blank">Fit Classification Tree, Random Forests and Gradient Boosting in R</a> <br />
+Tutorial 9: <a href = "" target = "_blank">Fit Artificial Neural Networks (ANN) in R</a>
 
 Optional: <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/RMSC4002/Tutorial%200/RMSC4002_Tutorial_0_Optional_Reference.pdf" target = "_blank">Reference Courses</a>, <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/RMSC4002/Tutorial%201/RMSC4002_Tutorial_1_Proof.pdf" target = "_blank">Selected Linear Algebra Proof</a>, <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_7" target = "_blank">Introduction to Generalized Linear Model</a>
 
