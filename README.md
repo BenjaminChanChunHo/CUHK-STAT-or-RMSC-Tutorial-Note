@@ -45,6 +45,7 @@ Optional: <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tut
 <a href = "https://www.youtube.com/watch?v=xC-c7E5PK0Y" target = "_blank">Joma Tech: What is Data Science? Told by a Data Scientist</a> (YouTube channel) <br />
 <a href = "https://www.youtube.com/watch?v=dzFf3r1yph8" target = "_blank">Joseph Blitzstein: "The Soul of Statistics"</a> (Professor of Statistics at Harvard University) <br />
 <a href = "https://www.youtube.com/watch?v=WMDAR2bZEp0&t=15s" target = "_blank">Roger Peng: This is Statistics</a> (Professor of Biostatistics at Johns Hopkins University and blogger of <a href = "https://simplystatistics.org/" target = "_blank">Simply Statistics</a>) <br />
+<a href = "https://www.youtube.com/watch?v=U0XIBBuJal4" target = "_blank">Brian Caffo: Machine Learning versus Classical Statistics</a> (Professor of Biostatistics at Johns Hopkins University) <br />
 <a href = "https://www.youtube.com/watch?v=40riCqvRoMs&t=86s" target = "_blank">Fei Fei Li: How we teach computers to understand pictures</a> (Professor of Computer Science at Stanford University) <br />
 <a href = "https://www.youtube.com/watch?v=KhAUfqhLakw&t=618s" target = "_blank">Jake VanderPlas: Frequentism and Bayesianism</a> (Data scientist and researcher) <br />
 <a href = "https://www.youtube.com/watch?v=yakg94HyWdE&index=13&t=0s&list=PLEQ-ymviqWk_KbnJKZo2-5ADUS748Uo18" target = "_blank">Richard McElreath: Bayesian Statistics without Frequentist Language</a> (Ecologist)
