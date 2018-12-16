@@ -3,24 +3,26 @@
 ### Self-introduction
 Hello, I am <a href = "https://www.linkedin.com/in/benjamin-chan-chun-ho/" target = "_blank">Benjamin Chan</a>, pursuing M.Phil. in Statistics at CUHK from Aug 2017 to Jul 2019. Moreover, I am a teaching assistant at Department of Statistics. You can find my tutorial notes here.
 
-Prior to that, I received my undergraduate degree in Statistics at CUHK (with First Class Honours and minor in Risk Management Science).
+Prior to that, I received my undergraduate degree in Statistics with First Class Honours and minor in Risk Management Science at CUHK.
 
 ### STAT1011 Introduction to Statistics 
 Students will learn the basic concepts of statistics, so that they will be equipped to understand statistical reports and recognize when the quantitative information presented is reliable. They will also learn about organizing and displaying graphical and numerical summaries of data, and drawing conclusions from them. The course uses computer interactive techniques, instead of tedious arithmetic calculations, to introduce simple but powerful statistical concepts. Topics include exploratory data analysis, statistical graphics, sampling variability, point and confidence interval estimation, hypothesis testing, as well as other selected topics.
 
 #### 17-18 Term 1, Course Instructor: Prof. Yuanyuan Lin, Student No: 279
-Tutorial 4: Introduction of Discrete Probability Distributions <br />
-Tutorial 5: Introduction of Continuous Probability Distributions (Normal Distribution only)
+Tutorial 4: [Introduction of Discrete Probability Distributions](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT1011/STAT1011_Tutorial_4_with%20Solutions.pdf) <br />
+Tutorial 5: [Introduction of Continuous Probability Distributions](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT1011/STAT1011_Tutorial_5_with%20Solutions.pdf) (Normal Distribution only)
+
+Optional: [Supplementary Proof of Theorems in Normal Distribution](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT1011/STAT1011_Tutorial_5_Supplement.pdf)
 
 ### STAT2006 Basic Concepts in Statistics and Probability II 
 This course covers basic theories in estimation and testing. Topics include point estimation, interval estimation, unbiasedness, maximum likelihood estimation, hypothesis testing and likelihood ratio test.
 
 #### 17-18 Term 2, Course Instructor: Prof. Phillip Yam, Student No: 218
-Tutorial 0: Review of Discrete and Continuous Probability Distributions <br />
-Tutorial 5: Point Estimation <br />
-Tutorial 6: Midterm Revision - Point Estimation Exercises <br />
-Tutorial 7: Confidence Intervals for Mean <br />
-Tutorial 8: Confidence Interval for Variance and Proportion
+Tutorial 0: [Review of Discrete and Continuous Probability Distributions](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/tree/master/STAT2006/Tutorial%200) <br />
+Tutorial 5: [Point Estimation](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%205/STAT2006_Tutorial_5_Point_Estimation_With_Solutions.pdf) <br />
+Tutorial 6: [Midterm Revision -- Point Estimation Exercises](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%206/STAT2006_Tutorial_6_Midterm_Revision_Point_Estimation_With_Solutions.pdf) <br />
+Tutorial 7: [Confidence Intervals for Mean](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%207/STAT2006_Tutorial_7_Confidence_Interval_for_Mean_With_Solutions.pdf) <br />
+Tutorial 8: [Confidence Interval for Variance and Proportion](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%208/STAT2006_Tutorial_8_Confidence_Interval_for_Variance_and_Proportion_With_Solutions.pdf)
 
 Optional: <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%205/STAT2006_Tutorial_5_Optional_Topic.pdf" target = "_blank">Frequentist vs Bayesian Statistician</a>
 
