@@ -22,7 +22,7 @@ Tutorial 0: [Review of Discrete and Continuous Probability Distributions](https:
 Tutorial 5: [Point Estimation](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%205/STAT2006_Tutorial_5_Point_Estimation_With_Solutions.pdf) <br />
 Tutorial 6: [Midterm Revision - Point Estimation Exercises](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%206/STAT2006_Tutorial_6_Midterm_Revision_Point_Estimation_With_Solutions.pdf) <br />
 Tutorial 7: [Confidence Intervals for Mean](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%207/STAT2006_Tutorial_7_Confidence_Interval_for_Mean_With_Solutions.pdf) <br />
-Tutorial 8: [Confidence Interval for Variance and Proportion](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%208/STAT2006_Tutorial_8_Confidence_Interval_for_Variance_and_Proportion_With_Solutions.pdf)
+Tutorial 8: [Confidence Intervals for Variance and Proportion](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%208/STAT2006_Tutorial_8_Confidence_Interval_for_Variance_and_Proportion_With_Solutions.pdf)
 
 Optional: <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/STAT2006/Tutorial%205/STAT2006_Tutorial_5_Optional_Topic.pdf" target = "_blank">Frequentist vs Bayesian Statistician</a>
 
