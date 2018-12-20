@@ -43,6 +43,8 @@ Tutorial 7: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_
 Tutorial 8: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_8" target = "_blank">Fit Classification Tree, Random Forests and Gradient Boosting in R</a> <br />
 Tutorial 9: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_9" target = "_blank">Fit Artificial Neural Networks (ANN) in R</a>
 
+Gift for You: [18-19 Final Examination Suggested Solution](https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/RMSC4002/RMSC4002_1819_Final_Exam_Solution.pdf)
+
 Optional: <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/RMSC4002/Tutorial%200/RMSC4002_Tutorial_0_Optional_Reference.pdf" target = "_blank">Reference Courses</a>, <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tutorial-Note/blob/master/RMSC4002/Tutorial%201/RMSC4002_Tutorial_1_Proof.pdf" target = "_blank">Selected Linear Algebra Proof</a>, <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_7" target = "_blank">Introduction to Generalized Linear Model</a>
 
 ### Just for Fun
