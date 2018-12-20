@@ -29,7 +29,7 @@ Optional: <a href = "https://github.com/BenjaminChanChunHo/CUHK-STAT-or-RMSC-Tut
 ### RMSC4002 Data Analysis in Finance and Risk Management Science 
 This course covers modern data analysis techniques that are commonly used in financial and risk management. Topics include applications of multivariate techniques such as principal component and canonical correlation to asset management, Value-at-Risks, GARCH model in estimating volatility, time series methods in term-structure analysis, and data mining methods such as logistic regression, k-mean clustering and classification tree, and neural network.
 
-#### 18-19 Term 1 (Current), Course Instructor: Prof. Phillip Yam, Student No: 47
+#### 18-19 Term 1, Course Instructor: Prof. Phillip Yam, Student No: 47
 Many materials do credit to former instructor Prof. Pui Lam Leung. Related theories are covered in lectures while implementation in R is focused in tutorials. Stock price, zero-coupon bond, financial ratio and iris data are used for illustration.
 
 Tutorial 0: <a href = "http://rpubs.com/Benjamin_Chan_Chun_Ho/RMSC4002_Tutorial_0" target = "_blank">Introduction to R</a> <br />
